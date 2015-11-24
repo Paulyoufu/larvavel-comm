@@ -36,4 +36,9 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class);//这个用户所有关于他的文章$user->discussions
+    }
 }
