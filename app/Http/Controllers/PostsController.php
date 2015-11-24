@@ -50,7 +50,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $discussion = Discussion::findOrFail($id);
+        return view('forum.show',compact('discussion'));
     }
 
     /**
