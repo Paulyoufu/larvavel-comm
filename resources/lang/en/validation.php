@@ -88,8 +88,23 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => '用户名不能为空,也不能小于3位',
+        ],
+        'email' => [
+            'required' => '邮箱不能为空',
+        ],
+        'email' => [
+            'unique' => '邮箱存在',
+        ],
+        'password' => [
+            'confirmed' => '密码不能为空',
+        ],
+        'password_confirmation' => [
+            'required' => '确认密码不能为空',
+        ],
+        'password' => [
+            'required' => '密码不能为空',
         ],
     ],
 
@@ -97,7 +112,7 @@ return [
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
     |--------------------------------------------------------------------------
-    |
+    |_confirmation
     | The following language lines are used to swap attribute place-holders
     | with something more reader friendly such as E-Mail Address instead
     | of "email". This simply helps us make messages a little cleaner.
