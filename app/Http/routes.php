@@ -14,3 +14,5 @@
 
 Route::get('/','PostsController@index');
 Route::resource('discussions','PostsController');
+Route::get('/users/register','UserController@register');
+//Route::get('/users/register','UserController@store');
