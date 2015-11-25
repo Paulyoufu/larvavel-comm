@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -41,7 +42,9 @@ class UserController extends Controller
      */
     public function store(Requests\UserRegisterRequest $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        User::create(array_merge($request->all(),['avatar'=>'/image/df.png']));
+        //send mail
         return redirect('/');
     }
 

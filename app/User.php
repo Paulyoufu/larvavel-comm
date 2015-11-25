@@ -41,4 +41,9 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasMany(Discussion::class);//这个用户所有关于他的文章$user->discussions
     }
+
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password']=\Hash::make($password);
+    }
 }
