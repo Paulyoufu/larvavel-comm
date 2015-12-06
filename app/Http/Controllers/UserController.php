@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
 class UserController extends Controller
 {
     /**
@@ -48,6 +49,19 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function  login()
+    {
+        return view('users.login');
+    }
+    public function signin(Requests\UserLoginRequst $request)
+    {
+
+        if (\Auth::attempt(['email'=>$request->get('email'), 'password'=>$request->get('password')])){
+          return redirect('/');
+        }
+        \Session::flash('user_login_failed',"密码不正确邮箱没验证");
+       return redirect('/user/login')->withInput();
+    }
     /**
      * Display the specified resource.
      *

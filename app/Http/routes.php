@@ -15,4 +15,6 @@
 Route::get('/','PostsController@index');
 Route::resource('discussions','PostsController');
 Route::get('/users/register','UserController@register');
+Route::get('/users/login','UserController@login');
 Route::post('/user/register','UserController@store');//注册
+Route::post('/user/login','UserController@signin');//注册
