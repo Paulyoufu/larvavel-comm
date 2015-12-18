@@ -6,6 +6,7 @@
                 <h2>lavravel App 社区
                     <a class="btn btn-lg btn-primary pull-right" href="../../components/#navbar" role="button">发布新帖子</a>
                 </h2>
+
             </p>
             </div>
         </div>

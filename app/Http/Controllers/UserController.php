@@ -68,15 +68,18 @@ class UserController extends Controller
         return view('users.login');
     }
     public function signin(Requests\UserLoginRequst $request)
-    {
+    { //dd(\Auth::user());
         if(\Auth::attempt(['email'=>$request->get('email'),
             'password'=>$request->get('password')])){
-            echo "1111111111111";
+         //   echo \Auth::check();
+          //  echo \Auth::user()->name;
          return redirect('/');
        }
-     \Session::flash('user_login_failed',"密码不正确邮箱没验证");
-     return redirect('/user/login')->withInput();
+       \Session::flash('user_login_failed',"密码不正确邮箱没验证");
+       return redirect('/users/login')->withInput();
     }
+
+   // public function check()  {   return ! is_null($this->user());  }
     /**
      * Display the specified resource.
      *
