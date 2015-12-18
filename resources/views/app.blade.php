@@ -38,10 +38,6 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
-
-
-
 @yield('content');
 </body>
 </html>

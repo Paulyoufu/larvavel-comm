@@ -16,6 +16,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -24,6 +25,19 @@ class UserController extends Controller
     {
         return view('users.register');
     }
+
+    public function getLogin() {
+        $this->layout->content = View::make('users.login');
+    }
+    public function postSignin() {
+        if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')))) {
+            return Redirect::to('users/dashboard')->with('message', '欢迎登录');
+        } else {
+            return Redirect::to('users/login')->with('message', '用户名或密码错误')->withInput();
+        }
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,12 +69,13 @@ class UserController extends Controller
     }
     public function signin(Requests\UserLoginRequst $request)
     {
-
-        if (\Auth::attempt(['email'=>$request->get('email'), 'password'=>$request->get('password')])){
-          return redirect('/');
-        }
-        \Session::flash('user_login_failed',"密码不正确邮箱没验证");
-       return redirect('/user/login')->withInput();
+        if(\Auth::attempt(['email'=>$request->get('email'),
+            'password'=>$request->get('password')])){
+            echo "1111111111111";
+         return redirect('/');
+       }
+     \Session::flash('user_login_failed',"密码不正确邮箱没验证");
+     return redirect('/user/login')->withInput();
     }
     /**
      * Display the specified resource.
