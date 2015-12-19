@@ -25,10 +25,26 @@
     <div class="row">
         <div class="col-md-9" role="main">
             <div class="blog-post">
-                {{ $discussion->body }}
+
                 {!! $html !!}
+
             </div><!-- /.blog-post -->
+            <hr>
+            @foreach($discussion->comments as $comment)
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img src='{{ $comment->user->avatar }}' alt="64*64" class="media-object img-circle" style="width: 64px;height: 64px;"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ $comment->user->name }}</h4>
+                    {{ $comment->body }}
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
+
 @stop

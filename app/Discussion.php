@@ -12,4 +12,9 @@ class Discussion extends Model
     {
         return $this->belongsTo(User::class);//$discussion->user  如果有其它外键$this->belongsTo(User::class,"yourforeignkey");
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
