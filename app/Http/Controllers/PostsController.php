@@ -38,9 +38,15 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Requests\StoreBlogPostRequest $request)
+    {   $data = [
+         'user_id'=>\Auth::user()->id,
+        'last_user_id'=>\Auth::user()->id,
+    ];
+        //dd($data);
+        $discussion = Discussion::create(array_merge($request->all(),$data));
+        //dd($discussion->id);
+        return redirect()->action('PostsController@show',['id'=>$discussion->id]);
     }
 
     /**
