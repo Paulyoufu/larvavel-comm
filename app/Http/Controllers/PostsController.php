@@ -29,7 +29,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('forum.create');
     }
 
     /**
