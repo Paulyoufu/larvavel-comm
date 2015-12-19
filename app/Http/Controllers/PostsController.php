@@ -15,6 +15,9 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct(){
+        $this->middleware('auth',['only'=>['create','store','edit','update']]);
+    }
     public function index()
     {
 
