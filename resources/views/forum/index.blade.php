@@ -21,7 +21,9 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" style="padding-top: 10px"><a href="/discussions/{{ $discussion->id }}">{{ $discussion->title }}</a></h4>
+                    <h4 class="media-heading" style="padding-top: 10px">
+
+                        <a href="/discussions/{{ $discussion->id }}">{{ $discussion->title }}</a></h4>
                     {{ $discussion->user->name }}
                 </div>
             </div>

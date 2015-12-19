@@ -3,9 +3,7 @@
         <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h2>
-            <a class="btn btn-lg btn-primary pull-right" href="../../components/#navbar" role="button">修改帖子</a>
-        </h2>
+       
         <div class="media">
             <div class="media-left">
                 <a href="#">
@@ -13,7 +11,11 @@
                 </a>
             </div>
             <div class="media-body">
-                <h4 class="media-body">{{ $discussion->title }}</h4>
+                <h4 class="media-heading">{{ $discussion->title }}
+                  @if(Auth::check() && Auth::user()->id == $discussion->user_id)
+                        <a class="btn btn-lg btn-primary pull-right" href="/discussions/{{$discussion->id}}/edit" role="button">修改帖子</a>
+                    @endif
+                </h4>
                 {{ $discussion->user->name }}
             </div>
         </div>
