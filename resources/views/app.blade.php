@@ -21,15 +21,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
+                <li class="active"><a href="/">主页</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                     <li>
-                        <a href="../navbar/">
+                        <a href="#">
                             {{ Auth::user()->name }}
                         </a>
                     </li>
+                    <li><a href="/logout">退出登录</a></li>
                 @else
                     <li><a href="/users/login">登录</a></li>
                     <li><a href="/users/register">注册</a></li>
