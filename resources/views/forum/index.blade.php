@@ -1,10 +1,10 @@
 @extends('app')
 @section('content')
         <!-- Main component for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container">
+        <div class="jumbotron" style="background-color: #00C35E;">
+            <div class="container" >
                 <h2>lavravel App 社区
-                    <a class="btn btn-lg btn-primary pull-right" href="/discussions/create" role="button">发布新帖子</a>
+                    <a class="btn btn-lg btn-primary pull-right" href="/discussions/create" role="button" style="background-color: #C93842;">发布新帖子</a>
                 </h2>
 
             </p>
@@ -24,6 +24,14 @@
                     <h4 class="media-heading" style="padding-top: 10px">
 
                         <a href="/discussions/{{ $discussion->id }}">{{ $discussion->title }}</a></h4>
+                    {{ $discussion->user->name }}
+                    <div class="media-conversation-meta">
+                        <span class="media-conversation-replies">
+                            <a href="/discussion/154#reply">{{ count($discussion->comments) }}</a>
+                            回复
+                        </span>
+                    </div>
+                    </h4>
                     {{ $discussion->user->name }}
                 </div>
             </div>
