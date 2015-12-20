@@ -43,6 +43,15 @@
                     {{ $comment->body }}
                 </div>
             @endforeach
+            <hr>
+            {!! Form::open(['url'=>'/comment']) !!}
+            {!! Form::hidden('discussion_id',$discussion->id) !!}
+            <div class="form-group">
+                {!! Form::label('body','Body') !!}
+                {!! Form::textarea('body',null,['class'=>'form-control']) !!}
+            </div>
+            {!! Form::submit('发表评论',['class'=>'btn btn-primary pull-right']) !!}
+
         </div>
     </div>
 </div>

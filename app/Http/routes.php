@@ -20,3 +20,4 @@ Route::get('/user/login','UserController@login');
 Route::post('/user/register','UserController@store');//注册
 Route::post('/user/login','UserController@signin');//注册 App\Http\Controllers\PostsController@show
 Route::get('/logout','UserController@logout');
+Route::resource('comment','CommentsController');
