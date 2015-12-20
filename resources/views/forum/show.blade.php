@@ -44,14 +44,21 @@
                 </div>
             @endforeach
             <hr>
+
+            @if(Auth::check())
             {!! Form::open(['url'=>'/comment']) !!}
             {!! Form::hidden('discussion_id',$discussion->id) !!}
             <div class="form-group">
                 {!! Form::label('body','Body') !!}
                 {!! Form::textarea('body',null,['class'=>'form-control']) !!}
             </div>
-            {!! Form::submit('发表评论',['class'=>'btn btn-primary pull-right']) !!}
-
+            <div>
+                 {!! Form::submit('发表评论',['class'=>'btn btn-primary pull-right']) !!}
+            </div>
+                {!! Form::close() !!}
+            @else
+                <a href="/user/login" class="btn btn-block btn-success">登录参与评论</a>
+            @endif
         </div>
     </div>
 </div>
