@@ -80,6 +80,16 @@ class UserController extends Controller
        return redirect('/users/login')->withInput();
     }
 
+    public function avatar()
+    {
+        return view('users.avatar');
+    }
+
+    public function changeAvatar()
+    {
+        dd('avatar');
+    }
+
    // public function check()  {   return ! is_null($this->user());  }
     /**
      * Display the specified resource.

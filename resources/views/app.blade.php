@@ -33,7 +33,7 @@
                                <h3> {{ Auth::user()->name }} <span class="caret"></span></h3>
                             </div>
                             <ul class="dropdown-menu">
-                                <li><a role="menuitem" href="#"><i class="fa fa-user"></i>更换头像</a></li>
+                                <li><a role="menuitem" href="/user/avatar"><i class="fa fa-user"></i>更换头像</a></li>
                                 <li><a role="menuitem" href="#"><i class="fa fa-cog"></i>更换密码</a></li>
                                 <li><a role="menuitem" href="#"><i class="fa fa-heart"></i>特别感谢</a></li>
                                 <li><a role="menuitem" href="/logout"><i class="fa fa-sign-out"></i>退出登录</a></li>
