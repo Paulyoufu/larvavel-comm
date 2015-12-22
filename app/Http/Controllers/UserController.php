@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Discussion;
 use App\User;
 use Illuminate\Http\Request;
-
+use Intervention\Image;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Validator;
-use Image;
+//use Illuminate\Support\Facades\Response;
+//use Illuminate\Support\Facades\Validator;
+
 
 
 class UserController extends Controller
@@ -104,7 +104,7 @@ class UserController extends Controller
         $destinationPath = 'uploads/';
         $filename = \Auth::user()->id.'_'.time().$file->getClientOriginalName();
         $file->move($destinationPath,$filename);
-        Image::make($destinationPath.$filename)->fit(200)->save();
+       // Image::make($destinationPath.$filename)->fit(200)->save();
         $user =User::find(\Auth::user()->id);
         $user->avatar = '/'.$destinationPath.$filename;
         $user->save();

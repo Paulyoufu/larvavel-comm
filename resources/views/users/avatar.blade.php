@@ -54,6 +54,8 @@
             } else {
                 $('#user-avatar').attr('src',response.avatar);
                 $('#upload-avatar').html('更换新的头像');
+                window.location.reload();
+               // alert("1");
             }
         }
     </script>
