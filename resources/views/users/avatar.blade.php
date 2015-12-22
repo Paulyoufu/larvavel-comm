@@ -57,8 +57,4 @@
             }
         }
     </script>
-
-    Status API Training Shop Blog About Pricing
-
-
 @stop
