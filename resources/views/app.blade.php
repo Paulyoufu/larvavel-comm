@@ -5,6 +5,10 @@
     <title>Laravel App</title>
     <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
 </head>
 <body>
 <!-- Static navbar -->
@@ -51,10 +55,6 @@
     </div>
 </nav>
 @yield('content');
-<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.js"></script>
-<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
-<link href="http://apps.bdimg.com/libs/bootstrap-glyphicons/1.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
 </body>

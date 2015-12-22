@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
+use Image;
 
 
 class UserController extends Controller
@@ -88,6 +91,16 @@ class UserController extends Controller
     public function changeAvatar(Request $request)
     {
         $file = $request->file('avatar');
+        $input = array('image'=>$file);
+        $rules = array('image'=>'image');
+        $validator =\Validator::make($input,$rules);
+        if($validator->fails())
+        {
+            return \Response::json([
+                'success'=>false,
+                'errors'=>$validator->getMessageBag()->toArray()
+            ]);
+        }
         $destinationPath = 'uploads/';
         $filename = \Auth::user()->id.'_'.time().$file->getClientOriginalName();
         $file->move($destinationPath,$filename);
@@ -95,7 +108,11 @@ class UserController extends Controller
         $user =User::find(\Auth::user()->id);
         $user->avatar = '/'.$destinationPath.$filename;
         $user->save();
-        return redirect(('/user/avatar'));
+        return \Response::json([
+            'success'=>true,
+            'avatar'=>asset($destinationPath.$filename)
+        ]);
+
     }
 
    // public function check()  {   return ! is_null($this->user());  }
