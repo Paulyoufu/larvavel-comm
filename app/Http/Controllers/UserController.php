@@ -85,9 +85,17 @@ class UserController extends Controller
         return view('users.avatar');
     }
 
-    public function changeAvatar()
+    public function changeAvatar(Request $request)
     {
-        dd('avatar');
+        $file = $request->file('avatar');
+        $destinationPath = 'uploads/';
+        $filename = \Auth::user()->id.'_'.time().$file->getClientOriginalName();
+        $file->move($destinationPath,$filename);
+        Image::make($destinationPath.$filename)->fit(200)->save();
+        $user =User::find(\Auth::user()->id);
+        $user->avatar = '/'.$destinationPath.$filename;
+        $user->save();
+        return redirect(('/user/avatar'));
     }
 
    // public function check()  {   return ! is_null($this->user());  }
